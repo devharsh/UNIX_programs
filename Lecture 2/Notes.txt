@@ -1,0 +1,90 @@
+There are two types of links :
+
+    Soft Link or Symbolic links
+    Hard Links
+
+
+1. Hard Links
+
+    Each hard linked file is assigned the same Inode value as the original, therefore they reference the same physical file location. Hard links more flexible and remain linked even if the original or linked files are moved throughout the file system, although hard links are unable to cross different file systems.
+    ls -l command shows all the links with the link column shows number of links.
+    Links have actual file contents
+    Removing any link, just reduces the link count, but doesn’t affect other links.
+    We cannot create a hard link for a directory to avoid recursive loops.
+    If original file is removed then the link will still show the content of the file.
+    Command to create a hard link is:
+
+    $ ln  [original filename] [link name] 
+
+2. Soft Links
+
+    A soft link is similar to the file shortcut feature which is used in Windows Operating systems. Each soft linked file contains a separate Inode value that points to the original file. As similar to hard links, any changes to the data in either file is reflected in the other. Soft links can be linked across different file systems, although if the original file is deleted or moved, the soft linked file will not work correctly (called hanging link).
+    ls -l command shows all links with first column value l? and the link points to original file.
+    Soft Link contains the path for original file and not the contents.
+    Removing soft link doesn’t affect anything but removing original file, the link becomes “dangling” link which points to nonexistent file.
+    A soft link can link to a directory.
+    Link across filesystems: If you want to link files across the filesystems, you can only use symlinks/soft links.
+    Command to create a Soft link is:
+
+    $ ln  -s [original filename] [link name] 
+
+
+
+
+
+
+
+
+
+Use the tee command as follows to see the output on screen and also write to a log file named my.log:
+
+mycoolapp arg1 arg2 input.file | tee my.log
+
+The tee command ensures that you will see mycoolapp output on on the screen and to a file same time.
+
+
+
+
+
+
+
+
+
+myprogram 2>errorsfile
+
+Redirection in Linux/Unix - Demystified!
+
+Above we are executing a program names myprogram.
+
+The file descriptor for standard error is 2.
+
+Using "2>" we re-direct the error output to a file named "errorfile"
+
+Thus, program output is not cluttered with errors. 
+
+
+
+
+
+
+
+
+
+ Server Administrators frequently, list directories and store both error and standard output into a file, which can be processed later. Here is the command.
+
+ls Documents ABC> dirlist 2>&1
+
+Here,
+
+    which writes the output from one file to the input of another file. 2>&1 means that STDERR redirects to the target of STDOUT (which is the file dirlist)
+    We are redirecting error output to standard output which in turn is being re-directed to file dirlist. Hence, both the output is written to file dirlist
+
+
+
+
+
+
+
+$ cat sample2.txt | head -7 | tail -5
+
+This command select first 7 lines and last 5 lines from the file and print those lines which are common to both of them.

@@ -1,0 +1,37 @@
+commands 	explanation
+ls 	list a directory
+ls -l 	list a directory in detailed format including file sizes and permissions
+ls -a 	List the current directory including hidden files. Hidden files start with "."
+ls -ld * 	List all the file and directory names in the current directory using long format. Without the "d" option, ls would list the contents of any sub-directory of the current. With the "d" option, ls just lists them like regular files.
+ls -lh 	list detailed format this time file sizes are human readable not in bytes
+
+
+
+
+
+The following finds all files ending in ".html" under /home/user directory.
+
+$ find /home/user -name "*.html"
+
+
+
+
+
+Command 	Explanation
+grep id1 genes.txt 	searches and prints lines matching "id1" in "genes.txt"
+grep id1 *.txt 	searches and prints lines matching "id1" in files ending with ".txt"
+grep -vi id1 *.txt 	similar to above, but -i option ignores the case (Id1,ID1,iD1 and id1 treated equally), -v option prints lines that don't match the pattern
+
+
+
+
+
+Directory abbreviations
+
+  .                  Current directory
+
+  ..                 Parent of current directory
+
+  ~<user>            Home directory of user <user>
+
+  ~                  Your home directory
