@@ -1,0 +1,31 @@
+The code doesn't work for following scenario:
+
+./bbcp file.ext /target/foo/bar/sub/dir
+
+as mkdir fails but it works for following scenario:
+
+./bbcp file.ext /target/foo/bar/sub/dir/file2.ext
+
+---
+
+2 test cases are failing out of 25
+
+localhost$ sh testcp.sh -p bbcp
+Expected failure, but command returned 0:
+  /home/dev/bbcp file file2
+Files '/etc/passwd' and 'file' differ.
+testcp.sh: 2/25 tests failed.
+
+For these failing test cases I tried to read the symbolic link and get the targrt path but for me the target path was returning a blank string
+
+my code is as follows:
+
+	link_path = argv[2];
+        len = readlink(link_path, target_path, sizeof(target_path)-1);
+        if (len != -1) {
+                target_path[len] = '\0';
+                if (strcmp(argv[1], target_path) == 0) {
+                        fprintf(stderr, "both files are same (no action)\n");
+                        exit(1);
+                }
+        }
