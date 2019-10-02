@@ -1,0 +1,3 @@
+[submodule "MID"]
+	path = MID
+	url = https://github.com/devharsh/APUE-MID.git
