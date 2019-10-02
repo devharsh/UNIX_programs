@@ -10,18 +10,18 @@
 
 int
 main(int argc, char **argv) {
-        int c;
+	int c;
 
-        while ((c = getc(stdin)) != EOF)
-                if (putc(c, stdout) == EOF) {
-                        fprintf(stderr, "write error\n");
-                        exit(1);
-                }
+	while ((c = getc(stdin)) != EOF)
+		if (putc(c, stdout) == EOF) {
+			fprintf(stderr, "write error\n");
+			exit(1);
+		}
 
-        if (ferror(stdin)) {
-                fprintf(stderr, "read error\n");
-                exit(1);
-        }
+	if (ferror(stdin)) {
+		fprintf(stderr, "read error\n");
+		exit(1);
+	}
 
-        return(0);
+	return(0);
 }

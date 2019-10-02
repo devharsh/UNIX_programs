@@ -8,6 +8,6 @@
 
 int
 main(int argc, char **argv) {
-        printf("Our process id is %d\n", getpid());
-        return(0);
+	printf("Our process id is %d\n", getpid());
+	return(0);
 }
