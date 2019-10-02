@@ -67,3 +67,57 @@ l optional_line 	List next listsize lines. If optional_line is given, list the l
 where 	Display the current line and function and the stack of calls that got you there. [where]
 h optional_topic	help or help on optional_topic [help]
 q	quit gdb [quit]
+
+
+
+
+
+
+
+Git:
+
+git config --global http.sslVerify false
+
+This will prevent CURL to verity the HTTPS certification.
+
+For one repository only:
+
+git config http.sslVerify false
+
+
+
+
+You can add rock as a submodule of slingshot. In the slingshot repository:
+
+git submodule add https://github.com/<user>/rock rock
+
+
+
+
+
+
+you might want to use force with push operation in this case
+
+git push origin master --force
+
+
+
+
+git remote:
+$ git remote add origin https://github.com/user/repo.git
+# Set a new remote
+
+$ git remote -v
+# Verify new remote
+> origin  https://github.com/user/repo.git (fetch)
+> origin  https://github.com/user/repo.git (push)
+
+
+
+
+
+Unix:
+Type the following command to rename foo folder to bar:
+mv foo bar
+You can use full path too:
+mv /home/vivek/oldfolder /home/vivek/newfolder
