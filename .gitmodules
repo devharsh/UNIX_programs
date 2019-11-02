@@ -1,3 +1,9 @@
 [submodule "MID"]
 	path = MID
 	url = https://github.com/devharsh/APUE-MID.git
+[submodule "GRP"]
+	path = GRP
+	url = https://github.com/devharsh/APUE-Group.git
+[submodule "grp"]
+	path = grp
+	url = https://github.com/devharsh/APUE-Group.git
