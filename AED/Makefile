@@ -3,7 +3,7 @@ CC=cc
 CFLAGS=-ansi -g -Wall -Werror -Wextra -Wformat=2 -Wjump-misses-init -Wlogical-op -Wpedantic -Wshadow -lcrypto
 RM=rm -f
 
-default: $(TARGET) blowfish
+default: $(TARGET)
 all: default 
 
 $(TARGET): $(TARGET).o

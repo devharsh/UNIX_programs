@@ -2,15 +2,13 @@
 
 int
 main(void) {
-	/* A 256 bit key */
-    	unsigned char *key = (unsigned char *)"01234567890123456789012345678901";
-
-    	/* A 128 bit IV */
-    	unsigned char *iv = (unsigned char *)"0123456789012345";
-
-    	/* Message to be encrypted */
 	char buf[SIZE];
+
+	unsigned char *key = NULL;
+	unsigned char *iv = NULL;
 	unsigned char *plaintext = NULL;
+	
+	generate_key(key, iv);
 
 	while(fgets(buf, SIZE, stdin) != NULL) {
 		printf("%s", buf);
@@ -35,7 +33,7 @@ main(void) {
     		int decryptedtext_len, ciphertext_len;
 
     		/* Encrypt the plaintext */
-    		ciphertext_len = encrypt (plaintext, strlen ((char *)plaintext), key, iv,
+    		ciphertext_len = aed_encrypt (plaintext, strlen ((char *)plaintext), key, iv,
                               ciphertext);
 
     		/* Do something useful with the ciphertext here */
@@ -43,7 +41,7 @@ main(void) {
     		BIO_dump_fp (stdout, (const char *)ciphertext, ciphertext_len);
 
     		/* Decrypt the ciphertext */
-    		decryptedtext_len = decrypt(ciphertext, ciphertext_len, key, iv,
+    		decryptedtext_len = aed_decrypt(ciphertext, ciphertext_len, key, iv,
                                 decryptedtext);
 
     		/* Add a NULL terminator. We are expecting printable text */
@@ -64,8 +62,42 @@ handleErrors(void)
     	abort();
 }
 
+void
+generate_key (unsigned char* key, unsigned char* iv) {
+	int i, fd;
+	unsigned char key1[16];
+	unsigned char key2[16];
+
+	if ((fd = open ("/dev/random", O_RDONLY)) == -1)
+		perror ("open error");
+
+	if ((read (fd, key1, 16)) == -1)
+		perror ("read key1 error");
+
+	if ((read (fd, key2, 16)) == -1)
+		perror ("read key2 error");
+
+	if ((read (fd, iv, 16)) == -1)
+		perror ("read iv error");
+
+	memcpy(key, key1, 16);
+	memcpy(key+16, key2, 16);
+	
+	printf("256 bit key:\n");
+	for (i = 0; i < 32; i++)
+		printf ("%d \t", key[i]);
+	printf ("\n ------ \n");
+
+	printf("Initialization vector\n");
+	for (i = 0; i < 16; i++)
+		printf ("%d \t", iv[i]);
+
+	printf ("\n ------ \n");
+	close (fd);
+}
+
 int 
-encrypt(unsigned char *plaintext, int plaintext_len, unsigned char *key,
+aed_encrypt(unsigned char *plaintext, int plaintext_len, unsigned char *key,
         unsigned char *iv, unsigned char *ciphertext)
 {
     	EVP_CIPHER_CTX *ctx;
@@ -111,7 +143,7 @@ encrypt(unsigned char *plaintext, int plaintext_len, unsigned char *key,
 }
 
 int 
-decrypt(unsigned char *ciphertext, int ciphertext_len, unsigned char *key,
+aed_decrypt(unsigned char *ciphertext, int ciphertext_len, unsigned char *key,
         unsigned char *iv, unsigned char *plaintext)
 {
     	EVP_CIPHER_CTX *ctx;

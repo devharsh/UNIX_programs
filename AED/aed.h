@@ -13,16 +13,20 @@
 #include <stdlib.h>
 #include <string.h>
 #include <strings.h>
+#include <unistd.h>
 
 #define SIZE 256
 
 void 
 handleErrors(void);
 
+void
+generate_key(unsigned char *key, unsigned char *iv);
+
 int 
-encrypt(unsigned char *plaintext, int plaintext_len, unsigned char *key,
+aed_encrypt(unsigned char *plaintext, int plaintext_len, unsigned char *key,
         unsigned char *iv, unsigned char *ciphertext);
 
 int 
-decrypt(unsigned char *ciphertext, int ciphertext_len, unsigned char *key,
+aed_decrypt(unsigned char *ciphertext, int ciphertext_len, unsigned char *key,
         unsigned char *iv, unsigned char *plaintext);
