@@ -17,6 +17,9 @@
 
 #define SIZE 256
 
+void
+printHelp(void);
+
 void 
 handleErrors(void);
 
