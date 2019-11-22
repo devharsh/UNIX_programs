@@ -12,6 +12,8 @@
 #define OP_SIZE 1040
 
 unsigned char key[32];
+unsigned char key1[16];
+unsigned char key2[16];
 unsigned char iv[16];
 
 int
@@ -21,11 +23,17 @@ generate_key ()
 	if ((fd = open ("/dev/random", O_RDONLY)) == -1)
 		perror ("open error");
 
-	if ((read (fd, key, 32)) == -1)
-		perror ("read key error");
+	if ((read (fd, key1, 16)) == -1)
+		perror ("read key1 error");
+
+	if ((read (fd, key2, 16)) == -1)
+		perror ("read key2 error");
 
 	if ((read (fd, iv, 16)) == -1)
 		perror ("read iv error");
+
+	memcpy(key, key1, 16);
+	memcpy(key+16, key2, 16);
 	
 	printf("256 bit key:\n");
 	for (i = 0; i < 32; i++)
@@ -42,7 +50,7 @@ generate_key ()
 }
 
 int
-aed_decrypt (int infd, int outfd)
+aed_decrypt ()
 {
 	unsigned char outbuf[IP_SIZE];
 	int olen, tlen, n;
@@ -54,7 +62,7 @@ aed_decrypt (int infd, int outfd)
 	for (;;)
 	  {
 		  bzero (&inbuff, OP_SIZE);
-		  if ((n = read (infd, inbuff, OP_SIZE)) == -1)
+		  if ((n = read (stdout, inbuff, OP_SIZE)) == -1)
 		    {
 			    perror ("read error");
 			    break;
@@ -76,7 +84,7 @@ aed_decrypt (int infd, int outfd)
 			    return 0;
 		    }
 		  olen += tlen;
-		  if ((n = write (outfd, outbuf, olen)) == -1)
+		  if ((n = write (stdin, outbuf, olen)) == -1)
 			  perror ("write error");
 	  }
 
@@ -85,7 +93,7 @@ aed_decrypt (int infd, int outfd)
 }
 
 int
-aed_encrypt (int infd, int outfd)
+aed_encrypt ()
 {
 	unsigned char outbuf[OP_SIZE];
 	int olen, tlen, n;
@@ -93,24 +101,13 @@ aed_encrypt (int infd, int outfd)
 	EVP_CIPHER_CTX ctx;
 	EVP_CIPHER_CTX_init (&ctx);
 	EVP_EncryptInit (&ctx, EVP_bf_cbc (), key, iv);
-
-	for (;;)
-	  {
-		  bzero (&inbuff, IP_SIZE);
-
-		  if ((n = read (infd, inbuff, IP_SIZE)) == -1)
-		    {
-			    perror ("read error");
-			    break;
-		    }
-		  else if (n == 0)
-			  break;
-
-		  if (EVP_EncryptUpdate (&ctx, outbuf, &olen, inbuff, n) != 1)
-		    {
+	bzero (&inbuff, IP_SIZE);
+	
+	while(fgets(inbuff, IP_SIZE, stdin) != NULL) {
+		  if (EVP_EncryptUpdate (&ctx, outbuf, &olen, inbuff, strlen(inbuff)) != 1) {
 			    printf ("error in encrypt update\n");
 			    return 0;
-		    }
+		  }
 
 		  if (EVP_EncryptFinal (&ctx, outbuf + olen, &tlen) != 1)
 		    {
@@ -118,86 +115,32 @@ aed_encrypt (int infd, int outfd)
 			    return 0;
 		    }
 		  olen += tlen;
-		  if ((n = write (outfd, outbuf, olen)) == -1)
+		  if ((n = write (stdout, outbuf, olen)) == -1)
 			  perror ("write error");
-	  }
+	}
+
 	EVP_CIPHER_CTX_cleanup (&ctx);
 	return 1;
 }
 
 int
-main ()
+main (void)
 {
-	int flags1 = 0, flags2 = 0, outfd, infd, decfd;
-	mode_t mode;
-	char choice;
-	int done = 0;
-
 	bzero (&key, 32);
 	bzero (&iv, 16);
-	bzero (&mode, sizeof (mode));
-
-	flags1 = flags1 | O_RDONLY;
-	flags2 = flags2 | O_RDONLY;
-	flags2 = flags2 | O_WRONLY;
-	flags2 = flags2 | O_CREAT;
-
-	mode = mode | S_IRUSR;
-	mode = mode | S_IWUSR;
 
 	generate_key();
 
-	while (!done)
-	  {
-		  printf ("E - Encrypt a file\n");
-		  printf ("D - Decrypt a file\n");
-		  printf ("Q - Quit\n");
+			aed_encrypt ();
 
-		  choice = getchar ();
+			aed_decrypt ();
 
-		  switch (choice)
-		    {
-		    case 'e':
-		    case 'E':
+			printf("To encrypt the contents of the file 'file' and storing the encrypted output in 'file.enc':\n");
+			printf("aed -e < file > file.enc\n");
+			printf("To decrypt the contents of that file again:\n");
+			printf("aed -d <file.enc\n");
+			printf("Since aed operates on stdin and stdout, the above two commands could also be chained:\n");
+			printf("cat file | aed -e | aed -d\n"); 
+			return 0;
 
-			    if ((infd = open ("aed.c", flags1, mode)) == -1)
-				    perror ("open input file error");
-
-			    if ((outfd = open ("aed-enc.c", flags2, mode)) == -1)
-				    perror ("open output file error");
-
-			    aed_encrypt (infd, outfd);
-
-			    close (infd);
-			    close (outfd);
-			    break;
-
-		    case 'd':
-		    case 'D':
-
-			    if ((outfd = open ("aed-enc.c", flags1, mode)) == -1)
-				    perror ("open output file error");
-
-			    if ((decfd = open ("aed-dec.c", flags2, mode)) == -1)
-				    perror ("open output file error");
-
-			    aed_decrypt (outfd, decfd);
-
-			    close (outfd);
-			    fsync (decfd);
-			    close (decfd);
-			    break;
-
-		    case 'Q':
-		    case 'q':
-			    done = 1;
-			    break;
-
-		    default:
-			    printf ("ERROR: Unrecognized command.  Try again.\n");
-			    break;
-		    }
-	  }
-	return 0;
 }
-

@@ -1,1 +1,0 @@
-localhost$ gcc -o blowfish sym_funcs.c -lcrypto
