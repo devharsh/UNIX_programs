@@ -14,10 +14,10 @@ main(void) {
 
 	while(fgets(buf, SIZE, stdin) != NULL) {
 		printf("%s", buf);
-		if(plaintext) {
-			strncat(plaintext, buf, strlen(buf));
+		if(!plaintext) {
+			plaintext = (unsigned char*)(&buf);
 		} else {
-			plaintext = buf;
+			strncat((char*)plaintext, buf, strlen(buf));		
 		}
 	}
 

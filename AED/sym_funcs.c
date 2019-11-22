@@ -9,31 +9,31 @@
 #include <sys/types.h>
 
 #define IP_SIZE 1024
-#define OP_SIZE 1032
+#define OP_SIZE 1040
 
-unsigned char key[16];
-unsigned char iv[8];
+unsigned char key[32];
+unsigned char iv[16];
 
 int
 generate_key ()
 {
-	int i, j, fd;
+	int i, fd;
 	if ((fd = open ("/dev/random", O_RDONLY)) == -1)
 		perror ("open error");
 
-	if ((read (fd, key, 16)) == -1)
+	if ((read (fd, key, 32)) == -1)
 		perror ("read key error");
 
-	if ((read (fd, iv, 8)) == -1)
+	if ((read (fd, iv, 16)) == -1)
 		perror ("read iv error");
 	
-	printf("128 bit key:\n");
-	for (i = 0; i < 16; i++)
+	printf("256 bit key:\n");
+	for (i = 0; i < 32; i++)
 		printf ("%d \t", key[i]);
 	printf ("\n ------ \n");
 
 	printf("Initialization vector\n");
-	for (i = 0; i < 8; i++)
+	for (i = 0; i < 16; i++)
 		printf ("%d \t", iv[i]);
 
 	printf ("\n ------ \n");
@@ -46,7 +46,7 @@ aed_decrypt (int infd, int outfd)
 {
 	unsigned char outbuf[IP_SIZE];
 	int olen, tlen, n;
-	char inbuff[OP_SIZE];
+	unsigned char inbuff[OP_SIZE];
 	EVP_CIPHER_CTX ctx;
 	EVP_CIPHER_CTX_init (&ctx);
 	EVP_DecryptInit (&ctx, EVP_bf_cbc (), key, iv);
@@ -89,7 +89,7 @@ aed_encrypt (int infd, int outfd)
 {
 	unsigned char outbuf[OP_SIZE];
 	int olen, tlen, n;
-	char inbuff[IP_SIZE];
+	unsigned char inbuff[IP_SIZE];
 	EVP_CIPHER_CTX ctx;
 	EVP_CIPHER_CTX_init (&ctx);
 	EVP_EncryptInit (&ctx, EVP_bf_cbc (), key, iv);
@@ -126,15 +126,15 @@ aed_encrypt (int infd, int outfd)
 }
 
 int
-main (int argc, char *argv[])
+main ()
 {
 	int flags1 = 0, flags2 = 0, outfd, infd, decfd;
 	mode_t mode;
-	char choice, temp;
-	int done = 0, n, olen;
+	char choice;
+	int done = 0;
 
-	bzero (&key, 16);
-	bzero (&iv, 8);
+	bzero (&key, 32);
+	bzero (&iv, 16);
 	bzero (&mode, sizeof (mode));
 
 	flags1 = flags1 | O_RDONLY;
@@ -154,7 +154,6 @@ main (int argc, char *argv[])
 		  printf ("Q - Quit\n");
 
 		  choice = getchar ();
-		  temp = getchar ();
 
 		  switch (choice)
 		    {
@@ -164,7 +163,7 @@ main (int argc, char *argv[])
 			    if ((infd = open ("aed.c", flags1, mode)) == -1)
 				    perror ("open input file error");
 
-			    if ((outfd = open ("aed-enc", flags2, mode)) == -1)
+			    if ((outfd = open ("aed-enc.c", flags2, mode)) == -1)
 				    perror ("open output file error");
 
 			    aed_encrypt (infd, outfd);
@@ -176,10 +175,10 @@ main (int argc, char *argv[])
 		    case 'd':
 		    case 'D':
 
-			    if ((outfd = open ("aed-enc", flags1, mode)) == -1)
+			    if ((outfd = open ("aed-enc.c", flags1, mode)) == -1)
 				    perror ("open output file error");
 
-			    if ((decfd = open ("aed-dec", flags2, mode)) == -1)
+			    if ((decfd = open ("aed-dec.c", flags2, mode)) == -1)
 				    perror ("open output file error");
 
 			    aed_decrypt (outfd, decfd);

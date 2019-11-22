@@ -14,10 +14,10 @@ main(void) {
 
 	while(fgets(buf, SIZE, stdin) != NULL) {
 		printf("%s", buf);
-		if(plaintext) {
-			strncat(plaintext, buf, strlen(buf));
+		if(!plaintext) {
+			plaintext = (unsigned char*)(&buf);
 		} else {
-			plaintext = buf;
+			strncat((char*)plaintext, buf, strlen(buf));		
 		}
 	}
 
@@ -36,9 +36,9 @@ main(void) {
 
     		/* Encrypt the plaintext */
     		ciphertext_len = encrypt (plaintext, strlen ((char *)plaintext), key, iv,
-                              ciphertext);
+                              ciphertext);
 
-    		/* Do something useful with the ciphertext here */
+    		/* Do something useful with the ciphertext here */
     		printf("Ciphertext is:\n");
     		BIO_dump_fp (stdout, (const char *)ciphertext, ciphertext_len);
 
@@ -79,7 +79,7 @@ encrypt(unsigned char *plaintext, int plaintext_len, unsigned char *key,
         	handleErrors();
 
     	/*
-     	 * Initialise the encryption operation. IMPORTANT - ensure you use a key
+     	 * Initialise the encryption operation. IMPORTANT - ensure you use a key
     	 * and IV size appropriate for your cipher
     	 * In this example we are using 256 bit AES (i.e. a 256 bit key). The
     	 * IV size for *most* modes is the same as the block size. For AES this
@@ -111,8 +111,8 @@ encrypt(unsigned char *plaintext, int plaintext_len, unsigned char *key,
 }
 
 int 
-decrypt(unsigned char *ciphertext, int ciphertext_len, unsigned char *key,
-        unsigned char *iv, unsigned char *plaintext)
+decrypt(unsigned char *ciphertext, int ciphertext_len, unsigned char *key,
+        unsigned char *iv, unsigned char *plaintext)
 {
     	EVP_CIPHER_CTX *ctx;
 
@@ -143,7 +143,7 @@ decrypt(unsigned char *ciphertext, int ciphertext_len, unsigned char *key,
     	plaintext_len = len;
 
     	/*
-    	 * Finalise the decryption. Further plaintext bytes may be written at
+    	 * Finalise the decryption. Further plaintext bytes may be written at
     	 * this stage.
     	 */
     	if(1 != EVP_DecryptFinal_ex(ctx, plaintext + len, &len))
