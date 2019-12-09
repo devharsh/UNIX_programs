@@ -4,3 +4,6 @@
 [submodule "GRP"]
 	path = GRP
 	url = https://github.com/devharsh/APUE-Group.git
+[submodule "FIN"]
+	path = FIN
+	url = https://github.com/devharsh/APUE-Final.git

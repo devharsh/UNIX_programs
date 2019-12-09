@@ -32,7 +32,6 @@ main(void) {
 		memcpy(ciphertext, buf, strlen(buf));
 		decryptedtext_len = aed_decrypt(ciphertext, strlen ((char *)ciphertext), key, iv,
                                 decryptedtext);
-		decryptedtext[decryptedtext_len] = '\0';
 		printf("%s", decryptedtext);
 	}
 
