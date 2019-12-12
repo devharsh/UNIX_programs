@@ -7,3 +7,6 @@
 [submodule "FIN"]
 	path = FIN
 	url = https://github.com/devharsh/APUE-Final.git
+[submodule "FINAL"]
+	path = FINAL
+	url = https://github.com/devharsh/APUE-Final.git
