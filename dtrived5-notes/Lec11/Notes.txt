@@ -1,0 +1,5 @@
+c random api:
+
+rand -> bad
+random -> better
+bn_rand -> best

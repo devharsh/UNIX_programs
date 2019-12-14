@@ -1,0 +1,21 @@
+AWS Console: https://console.aws.amazon.com/console/home?region=us-east-1#
+
+Linux Filesystem: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html
+
+PuTTY SSH for AWS: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html?icmpid=docs_ec2_console
+
+NetBSD installation: https://www.youtube.com/watch?v=Da4MscrTB_A
+
+NetBSD 8.1 ova: https://sourceforge.net/projects/netbsd-8-1/
+
+pstree on unix: https://www.cyberciti.biz/faq/unix-linux-pstree-command-examples-shows-running-processestree/
+
+File permissions on unix: https://stackoverflow.com/questions/8812959/how-to-read-linux-file-permission-programmatically-in-c-c/46436636
+
+
+Create AMI from scratch:
+https://gehrcke.de/awsac/docs/06_slsetup.html
+https://www.elastic.co/blog/create-an-ami-from-your-own-vm-image
+https://5pi.de/2015/03/13/building-aws-amis-from-scratch/
+https://www.thegeekstuff.com/2016/04/aws-ec2-cli-examples/
+https://www.elastic.co/blog/create-an-ami-from-your-own-vm-image

@@ -1,0 +1,312 @@
+commit fc45914188440da814751ac732bb0c3eac404cb7
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Fri Dec 13 23:26:12 2019 -0500
+
+    Create Notes.txt
+
+commit edc56be5d3241c00a8de6adb0516a689f5ff9f95
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Fri Dec 13 23:25:02 2019 -0500
+
+    Update Notes.txt
+
+commit 509a4149cc9540266582671a3f948b21a6bed906
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Fri Dec 13 23:20:52 2019 -0500
+
+    Create Notes.txt
+
+commit 88f86c317249ea93e865eaec8673bb8fbf4dbcc2
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Fri Dec 13 23:15:56 2019 -0500
+
+    Create Notes.txt
+
+commit 15a6c8f26fc6cf767e439dd490c384f464f07217
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Fri Dec 13 23:13:38 2019 -0500
+
+    Create Notes.txt
+
+commit e4f3030440f16fe497469ac1469d35d05234ab18
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Thu Dec 12 04:05:14 2019 +0000
+
+    commit from Windows VM
+
+commit c862b88eadd4b7a2e5ff08f8e5d39950da995625
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Mon Dec 9 17:44:10 2019 -0500
+
+    Initializing Final
+
+commit 6016dc41c8f42749298f38afd3f27a3d0186f2d3
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Fri Nov 22 03:17:45 2019 -0500
+
+    aed-sym-check-point-3
+
+commit ea88bdd2613bf85a7ffd41ebfb3e30cd49941969
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Fri Nov 22 01:27:32 2019 -0500
+
+    aed-sym-check-point-2
+
+commit 7d0a3ce605054ff8bf8b0b82b929fe6297d2c7b1
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Fri Nov 22 00:57:27 2019 -0500
+
+    aed-sym-check-point-1
+
+commit d5ef42acffdea3115559b5ee7dae318677fe4d56
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Fri Nov 22 00:30:13 2019 -0500
+
+    Lec12 sync
+
+commit 9e00e6e9b4d566f1c865735662cee29e5a5be3cf
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Thu Nov 21 23:09:33 2019 -0500
+
+    fixed compiler errors in both aed.c and sym programs
+
+commit fe196964c20354b15c5213bbbea574d9b8f91a13
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Thu Nov 21 21:10:54 2019 -0500
+
+    blowfish
+
+commit 346df89340375f3cac564dfb6f8cbd207c0c3c1e
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Thu Nov 21 18:03:01 2019 -0500
+
+    README.md changed to README.txt
+
+commit 68636a78c8bc547ccabb7e03d2a3b1f6d63f8046
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Thu Nov 21 18:00:52 2019 -0500
+
+    file read from stdin and write to stdout
+
+commit 5e0a2eb39b38ec255d8eb8a6f3911bd5b31230cf
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Sun Nov 17 23:52:29 2019 -0500
+
+    Is the given file present in the directory?
+
+commit 0890548ccc33a66c39569cb6f2d0a01e796124f1
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Tue Nov 12 12:32:44 2019 -0500
+
+    added first daemon program in Lec11
+
+commit 0f529f822bff4cb66299bff14aaabe00491bfb0f
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Sat Nov 2 15:54:08 2019 -0400
+
+    Sync 2
+
+commit 67c1b08706a2bb763ad56b367492a04aa486b515
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Sat Nov 2 15:22:28 2019 -0400
+
+    Sync 1
+
+commit f9e1bad14912d8dd5bc4a1f929026ca2e53428a2
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Sat Nov 2 15:21:09 2019 -0400
+
+    Sync 1
+
+commit a0ff8de81be1d10cb31be0f7e8994879b9d0baf3
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Sat Nov 2 15:19:43 2019 -0400
+
+    Sync 1
+
+commit dd592605744465875d6d10bb3701d3286418a4b8
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Tue Oct 15 15:40:28 2019 -0400
+
+    final sync APUE-MID
+
+commit cffbd76871cc0579031e084de211ac2943c04c90
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Tue Oct 15 03:29:17 2019 -0400
+
+    sync MID changes
+
+commit 5f0ad0935a199724270ba2b538d8e07a2edf71af
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Thu Oct 10 23:57:55 2019 -0400
+
+    re sync MID folder
+
+commit fe9665fce09e524f27cfdc811d40eb353dbffe2d
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Thu Oct 10 17:58:48 2019 -0400
+
+    Resycing MID changes
+
+commit f1e7cb9425eb7b55f0c1462a61680b143b73eea7
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Thu Oct 10 17:46:14 2019 -0400
+
+    sync changes
+
+commit 9b0f5963290ca1b884b0120c262c109a0e062b23
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Thu Oct 10 16:18:26 2019 -0400
+
+    resync MID changes:
+
+commit f73ec6314cab66bd48e2219d014e0fbe2334fad1
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Wed Oct 9 01:30:23 2019 -0400
+
+    sync changes.....
+
+commit 6df7d5e854aed92d099e9b5938336ef4a2d5e9c5
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Wed Oct 9 00:17:46 2019 -0400
+
+    syncing MID changes
+
+commit 49197cc3eb4be4aa3806764ae2435fccab6e2ca4
+Merge: d674e68 ccdbd2e
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Tue Oct 8 14:11:48 2019 -0400
+
+    Merge branch 'master' of https://github.com/devharsh/UNIX_programs
+
+commit d674e680b795a712aac122d0726003567d987fff
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Tue Oct 8 14:11:31 2019 -0400
+
+    sync MID changes
+
+commit ccdbd2e54f83e007879b7dd9f940d76245b07bf2
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Mon Oct 7 18:06:46 2019 -0400
+
+    Add files via upload
+
+commit b3a25865c4bd9d44081062dceaf1ad0c99d3c402
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Mon Oct 7 17:41:00 2019 -0400
+
+    introducing Lec6 notes
+
+commit d67e78097166b1374c417e88c0fb4e978d66f773
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Mon Oct 7 17:01:22 2019 -0400
+
+    sync MID
+
+commit 6677563acdd2aa1326dd35bcdbd925cdf478642a
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Mon Oct 7 01:26:55 2019 -0400
+
+    sync change for MID
+
+commit 2c55b98f111dfde0e9bbb9c0f20b368451de7d61
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Wed Oct 2 02:15:58 2019 -0400
+
+    sync changes for MID
+
+commit b3ee077bfb56f5cbdab1f8ca8f94ead4711b65bd
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Wed Oct 2 01:04:55 2019 -0400
+
+    updates Notes @ Lecture 5
+
+commit da7f703dfa5afed29548cf8e5f1daf847e84c823
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Wed Oct 2 00:57:59 2019 -0400
+
+    resync
+
+commit 327aac82ceaebd51c747239ef85a7f0a952489f9
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Wed Oct 2 00:50:32 2019 -0400
+
+    Adding existing repo at 'MID' to the index
+
+commit 071075154b36c3989e619db5f442f71594dc0d59
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Wed Oct 2 00:51:49 2019 -0400
+
+    Delete .DS_Store
+
+commit 3ec35cbc5580f687346646dc2667046e6dbe4815
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Wed Oct 2 00:51:40 2019 -0400
+
+    Delete .gitmodules
+
+commit fbee1bd943c12ac7643c3f3483f81a58093e07a6
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Wed Oct 2 00:20:37 2019 -0400
+
+    removed submodule MID
+
+commit c3e71463299d1fde9c9b2edecdaeb2b6c88e9d89
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Tue Oct 1 23:40:36 2019 -0400
+
+    adding MID submodule
+
+commit b776b2d19a7cbcd24faccef520b4bbae01e1a83c
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Tue Oct 1 23:38:30 2019 -0400
+
+    removing MID from index
+
+commit db8c077f85f9fdc878cc67ee3586a928e04cc35e
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Tue Oct 1 23:28:37 2019 -0400
+
+    removed extra subdirectories
+
+commit 278c0fe9fa598d0240d0009ac31c89dca5ef6df9
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Tue Oct 1 23:17:50 2019 -0400
+
+    reorganized directories
+
+commit cd8ef9f5fe45c23f680e46d4a7611c5fb9818db7
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Tue Oct 1 23:11:08 2019 -0400
+
+    renaming directories
+
+commit 79fbf7feeca48dbd70dc1072708f642ae349fe88
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Tue Oct 1 15:54:08 2019 -0400
+
+    updated notes
+
+commit f8a32b48521710408fbbefd355113989c042769a
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Tue Oct 1 15:30:26 2019 -0400
+
+    added new folders
+
+commit 04d81aff4790ed33dd28283ec4132d6b45fe5634
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Mon Sep 9 12:00:18 2019 -0400
+
+    Lecture 1 Programs
+
+commit 8d372eb88e43c7bee03fc14ca50e230682c83307
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Tue Aug 27 19:56:36 2019 -0400
+
+    Create README.md
+
+commit 343973a98f9bae0ff7cae242183b28589c153319
+Author: Devharsh Trivedi <devharsh@live.in>
+Date:   Tue Aug 27 19:55:17 2019 -0400
+
+    initial commit

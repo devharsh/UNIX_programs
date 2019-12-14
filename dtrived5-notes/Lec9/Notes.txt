@@ -1,0 +1,54 @@
+> 1. Can we use group permissions for access
+> protection instead of using sticky bits?
+
+I'm afraid I don't understand this question.
+
+The protection of the file is encoded in the st_mode
+of the struct stat.  That includes the user as well as
+the group permissions as well as any additional bits
+being set, such as the sticky bit.
+
+The sticky bit does not come into play when it comes
+to permissions or granting access, however:
+
+For text files, the sticky bit will retain the text
+segment of the executable in memory after the process
+terminates, so as to speed up loading of the
+executable the next time the program runs.
+
+For directories, setting the sticky bit changes the
+semantics such that only the owner of the file can
+remove the file in the directory.  (Recall that
+without the sticky bit set, anybody with write access
+to the directory can remove files in it, regardless of
+the permissions on the file.)
+
+The group permission bits are applied if the user
+trying to access the file is not the owner but is a
+member of the group with the GID == st_gid.
+
+> 2. What is screen (S) user permission?
+
+There is no "screen".
+
+The 'S' may show up in the strmode(3) representation
+of the file permissions as noted in the manual page:
+
+     S     If the character is part of the owner
+           permissions and the file is not executable
+           or the directory is not searchable by the
+           owner, and the set-user-id bit is set.
+
+> 3. Can you please share some reference material for
+> creating my own AMI on Amazon EC2 from a ISO image?
+
+https://nam02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fduckduckgo.com%2F%3Fq%3Dcreate%2Bcustom%2Bec2%2Bami%2Bimage%2Bnetbsd&amp;data=02%7C01%7Cdtrived5%40stevens.edu%7Cbc64da37e815455d747b08d7422fcf9c%7C8d1a69ec03b54345ae21dad112f5fb4f%7C0%7C0%7C637050645437115340&amp;sdata=xGac1s2g5OSwLM%2FzhiakaQMbEcai80nXG2AMzvjzjxE%3D&amp;reserved=0
+
+First link:
+https://nam02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwiki.netbsd.org%2Famazon_ec2%2Fbuild_your_own_ami%2F&amp;data=02%7C01%7Cdtrived5%40stevens.edu%7Cbc64da37e815455d747b08d7422fcf9c%7C8d1a69ec03b54345ae21dad112f5fb4f%7C0%7C0%7C637050645437115340&amp;sdata=TXqfG4%2BBPkap%2FWG%2BMjsSgAogj5QG1rb0wiJdSWJr%2FEo%3D&amp;reserved=0
+
+You can also find instructions on how to convert a
+Virtualbox image to an EC2 AMI, but either approach
+requires a fair understanding of the EC2 command-line
+tools and eco system, which is outside the scope of
+this class.

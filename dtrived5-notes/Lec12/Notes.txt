@@ -1,0 +1,11 @@
+- setsockoff - ipv6 only disable
+
+- where is getfacl stored?
+
+- security.models.securelevel.securelevel changes after reboot, how to make it permanent?
+
+- cpu load - avg no of jobs in queue
+
+- How different is Intel SGX (Software Guard Extension) from a Sandbox?
+
+That depends on what type of sandbox you're considering or how it is implemented. The Wikipedia pages for both SGX and "Sandbox (computer security)" are pretty good starting points to compare; the primary difference is that SGX performs encryption within the CPU to separate the enclaves.

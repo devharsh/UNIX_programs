@@ -1,0 +1,54 @@
+POSIX:
+
+POSIX is a family of standards, specified by the IEEE, to clarify and make uniform the application programming interfaces (and ancillary issues, such as commandline shell utilities) provided by Unix-y operating systems. When you write your programs to rely on POSIX standards, you can be pretty sure to be able to port them easily among a large family of Unix derivatives (including Linux, but not limited to it!); if and when you use some Linux API that's not standardized as part of Posix, you will have a harder time if and when you want to port that program or library to other Unix-y systems (e.g., MacOSX) in the future.
+
+UNIX certified products: https://www.opengroup.org/openbrand/register/
+
+
+
+POSIX.1: Core Services (incorporates Standard ANSI C) (IEEE Std 1003.1-1988) 
+
+POSIX.1b: Real-time extensions (IEEE Std 1003.1b-1993, later appearing as librt—the Realtime Extensions library)
+
+POSIX.1c: Threads extensions (IEEE Std 1003.1c-1995) 
+
+POSIX.2: Shell and Utilities (IEEE Std 1003.2-1992) 
+
+
+
+--------
+
+
+Timestamps:
+
+This is usually unreadable by humans.
+
+To convert this timestamp into something readable, copy the following small script into a searchable path and make it executable.
+
+#!/bin/gawk -f   
+{ print strftime("%c", $0); }
+
+Call the tool with the following command:
+
+echo "your timestamp(s)" | scriptname
+
+You'll get an response according to your local timezone.
+
+Example:
+
+$ date +%s   
+1098181096   
+$ echo "1098181096" | convertunixtime   
+Tue Oct 19 12:18:16 2004
+
+With this script you can convert multiple timestamps as well (each on one line)
+
+$ echo -e "1098181096\n 1098191096" | convertunixtime
+Tue Oct 19 12:18:16 2004
+Tue Oct 19 15:04:56 2004
+
+If you only want to convert one timestamp, you can also use date:
+
+% date -d @1098181096
+
+

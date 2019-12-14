@@ -1,0 +1,23 @@
+Assembly language closely tied to processor architecture
+
+At least four main types:
+
+CISC: Complex Instruction-Set Computer
+RISC: Reduced Instruction-Set Computer
+DSP: Digital Signal Processor
+VLIW: Very Long Instruction Word
+
+
+
+
+
+The structure of a program in AT&T-syntax is similar to any other assembler-syntax, consisting of a series of directives, labels, instructions - composed of a mnemonic followed by a maximum of three operands. The most prominent difference in the AT&T-syntax stems from the ordering of the operands.
+
+For example, the general format of a basic data movement instruction in INTEL-syntax is,
+
+mnemonic	destination, source
+
+whereas, in the case of AT&T, the general format is
+
+mnemonic	source, destination
+

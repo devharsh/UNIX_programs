@@ -1,0 +1,113 @@
+Vi editor command keys:
+
+  ZZ      Exit, saving changes           t<x>   Up to <x> forward
+  Q       Enter ex mode                  T<x>   Back up to <x>
+  <ESC>   End of insert                  <x>|   Go to column <x>
+  :<cmd>  Execute ex command             w,W    Forward one word
+  :!<cmd> Shell command                  b,B    Back one word
+  ^g      Show filename/size             e,E    End of word
+  ^f      Forward one screen             ^h     Erase last character
+  ^b      Back one screen                ^w     Erase last word
+  ^d      Forward half screen            ^?     Interrupt
+  ^u      Backward half screen           ~      Toggle character case
+  <x>G    Go to line <x>                 a      Append after
+  /<x>    Search forward for <x>         i,I    Insert before
+  ?<x>    Search backward for <x>        A      Append at end of line
+  n       Repeat last search             o      Open line below
+  N       Reverse last search            O      Open line above
+  ]]      Next section/function          r      Replace character
+  [[      Previous section/function      R      Replace characters
+  %       Find matching () { or }        d      Delete
+  ^l      Redraw screen                  dd     Delete line
+  ^r      Refresh screen                 c      Change              
+  z<CR>   Current line at top            y      Yank lines to buffer
+  z-      Current line at bottom         C      Change rest of line 
+  ^e      Scroll down one line           D      Delete rest of line 
+  ^y      Scroll up one line             s      Substitute character
+  ``      Previous context               S      Substitute lines    
+  H       Home window line               J      Join lines          
+  L       Last window line               x      Delete after        
+  M       Middle window line             X      Delete before       
+  +       Next line                      Y      Yank current line   
+  hjkl    Cursor movement:               p      Put back lines      
+          left/down/up/right             P      Put before          
+  0       Beginning of line              <<     Shift line left     
+  $       End of line                    >>     Shift line right    
+  f<x>    Find <x> forward               u      Undo last change    
+  F<x>    Find <x> backward              U      Restore current line
+
+Ex mode commands:
+
+  q       Quit                        set <x>   Enable option
+  q!      Quit, discard changes       set no<v> Disable option
+  r <f>   Read in file <f>            set all   Show all options
+  sh      Invoke shell
+  vi      Vi mode
+  wq      Write and quit
+  w <f>   Write file <f>
+  w! <f>  Overwrite file <f>
+
+
+
+
+
+Gdb Command	Description
+set listsize n 	Set the number of lines listed by the list command to n [set listsize]
+b function 	Set a breakpoint at the beginning of function [break]
+b line number 	Set a breakpoint at line number of the current file. [break]
+info b 	List all breakpoints [info]
+delete n 	Delete breakpoint number n [delete]
+r args 	Start the program being debugged, possibly with command line arguments args. [run]
+s count 	Single step the next count statments (default is 1). Step into functions. [step]
+n count 	Single step the next count statments (default is 1). Step over functions. [next]
+finish 	Execute the rest of the current function. Step out of the current function. [finish]
+c 	Continue execution up to the next breakpoint or until termination if no breakpoints are encountered. [continue]
+p expression 	print the value of expression [print]
+l optional_line 	List next listsize lines. If optional_line is given, list the lines centered around optional_line. [list]
+where 	Display the current line and function and the stack of calls that got you there. [where]
+h optional_topic	help or help on optional_topic [help]
+q	quit gdb [quit]
+
+
+
+
+
+
+
+Git:
+
+git config --global http.sslVerify false
+
+This will prevent CURL to verity the HTTPS certification.
+
+For one repository only:
+
+git config http.sslVerify false
+
+
+
+
+You can add rock as a submodule of slingshot. In the slingshot repository:
+
+git submodule add https://github.com/<user>/rock rock
+
+
+
+
+
+
+you might want to use force with push operation in this case
+
+git push origin master --force
+
+
+
+
+git remote:
+$ git remote add origin https://github.com/user/repo.git
+# Set a new remote
+
+$ git remote -v
+# Verify new remote
+> origin  https://github.com/user/repo.git (fetch)
+> origin  https://github.com/user/repo.git (push)
