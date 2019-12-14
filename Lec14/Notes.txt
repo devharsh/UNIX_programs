@@ -1,0 +1,3 @@
+Host byte ordering is dependent on the architecture of the sender or receiver. How is the network byte ordering decided? Is there a RFC for standardization?
+
+-> There is indeed: RFC1700[1], co-authored by John Postel[2] (of Postel's Law aka the Robustness Principle[3], and effectively functioning as IANA before IANA existed)  defined network byte order to be big endian.
